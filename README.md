@@ -59,12 +59,37 @@ context.modules = [
         }
     }
 ]
+```
+Restart pipewire.
+
+### Carla setup
+
+#### Carla startup
+Start carla like this:
 
 ```
-### Carla setup
+pw-jack -p 1440 carla
+```
+If Carla's buffer size is not 1440, restart  carla until it is.
+
+#### Engine settings
 Make engine settings as below
 
 ![image](https://user-images.githubusercontent.com/5956557/205489823-04f3e911-c174-4560-9eb7-bb8b52536c48.png)
+
+
+#### Testing
+
+Using qpwgraph, you can connect Carla to echo-cancel source and Sink. Thus, you should hear your voice when you test.
+I suggest to test your voice with headphones to prevent echo. Test when you say a whole phrase/sentence, not only individual words.
+Make sure that the mic is not peaking. All plugins in Carla must not touch the red areas in the volume bar of each plugin.
+If the mic is peaking reduce the sensitivity/capture volume of it, through Alsa or Pulseaudio mixer.
+
+![image](https://user-images.githubusercontent.com/5956557/205509754-3fbf085e-e321-4030-9095-3c6ed784309a.png)
+Use masterme graph to adjust the gate and check how load your voice is made.
+![image](https://user-images.githubusercontent.com/5956557/205509911-887b5e1d-a513-4a67-accd-15c5597ea1fe.png)
+
+After you are happy with the settings of all plugins, store the carla plugin chain in a Carla project file. (For example voice.carxp)
 
 ### Plugins
 
@@ -104,20 +129,7 @@ Use the below settings.
 
 ![image](https://user-images.githubusercontent.com/5956557/205510222-74e684c9-1271-449c-a385-ffd9665847ce.png)
 
-
-#### Testing
-
-Using qpwgraph, you can connect Carla to echo-cancel source and Sink. Thus you should hear your voice when you test.
-I suggest to test your voice with headphones to prevent echo. test when you say a whole phrase/sentence not only individual words.
-Make sure that the mic in not peaking. All plugins in Carla must not touch the red areas in the volume bar of each plugin.
-If the mic is peaking reduce the sensitivity/capture volume of it through Alsa or Pulseaudio mixer.
-
-![image](https://user-images.githubusercontent.com/5956557/205509754-3fbf085e-e321-4030-9095-3c6ed784309a.png)
-Use masterme graph to adjust the gate and check how load your voice is made.
-![image](https://user-images.githubusercontent.com/5956557/205509911-887b5e1d-a513-4a67-accd-15c5597ea1fe.png)
-
-After you are happy with the settings of all plugins, store the carla plugin chain in a Carla project file. (For example voice.carxp)
-
-#### Startup
+#### Autromated Startup
+After saving the project, you can automate startup like this:
 
 ## Windows
