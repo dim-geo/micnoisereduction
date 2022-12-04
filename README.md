@@ -9,7 +9,8 @@ A webpage to help document a good mic noise reduction setup
 Pipewire + carla (https://kx.studio/Applications:Carla) will be used.
 
 Echo cancellation to prevent echo when using speakers and mic
-Latency must be a multiple of 480. Increasing latency will prevent Xruns in Carla
+Latency must be a multiple of 480. Increasing latency will prevent Xruns in Carla.
+Autoconnect to your mic. (Use target.object)
 
 ```
 ~/.config/pipewire/pipewire.conf.d $ cat 20-echo-cancel.conf 
@@ -60,6 +61,11 @@ context.modules = [
 ]
 
 ```
+### Carla setup
+Make engine settings as below
 
+![image](https://user-images.githubusercontent.com/5956557/205489823-04f3e911-c174-4560-9eb7-bb8b52536c48.png)
+
+### Plugins
 
 ## Windows
