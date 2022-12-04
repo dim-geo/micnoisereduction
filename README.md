@@ -102,7 +102,8 @@ Use also the listen button to hear what it filters out. (It shouldn't destroy vo
 This plugin should remove unwanted sounds, like keyboard keys, cars, fans etc.
 Use the below settings.
 
-![image](https://user-images.githubusercontent.com/5956557/205509596-da1713ff-6d2c-41a2-bbcb-50fa590f09c3.png)
+![image](https://user-images.githubusercontent.com/5956557/205510222-74e684c9-1271-449c-a385-ffd9665847ce.png)
+
 
 #### Testing
 
