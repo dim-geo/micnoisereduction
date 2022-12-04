@@ -1,4 +1,4 @@
-# mic noise reduction
+# Mic noise reduction
 
 A webpage to help document a good mic noise reduction setup
 
@@ -67,5 +67,15 @@ Make engine settings as below
 ![image](https://user-images.githubusercontent.com/5956557/205489823-04f3e911-c174-4560-9eb7-bb8b52536c48.png)
 
 ### Plugins
+
+1. Equalizer (lv2 plugin) https://lsp-plug.in/?page=manuals&section=graph_equalizer_x16_stereo 
+2. Master me (lv2 plugin) https://github.com/trummerschlunk/master_me It acts like gate+ compressor + limiter
+3. Calf Desser (lv2 plugin) https://calf-studio-gear.org/doc/Deesser.html
+4. Noise reduction plugin (vst2 plugin) https://github.com/werman/noise-suppression-for-voice
+
+
+#### Equalizer
+![image](https://user-images.githubusercontent.com/5956557/205489954-b47498da-d43f-4e87-ba9a-4be5812d4c25.png)
+
 
 ## Windows
