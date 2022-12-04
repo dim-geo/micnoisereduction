@@ -1,6 +1,6 @@
 # Mic noise reduction
 
-A webpage to help document a good mic noise reduction setup
+A webpage to help document a good mic noise reduction setup.
 
 ## Linux
 
@@ -75,7 +75,17 @@ Make engine settings as below
 
 
 #### Equalizer
+
+You can use FFT analysis to see your voice is heard. Remove very low frequencies and try to make your voice sound less muffled. Maybe decrease central frequencies and increase high ones.
+
 ![image](https://user-images.githubusercontent.com/5956557/205489954-b47498da-d43f-4e87-ba9a-4be5812d4c25.png)
 
+#### Master me
+
+From easy view select 'speech general' preset. Then switch to expert and activate gate.
+You need to select the threshold of the gate based on what is heard when no or low sound is made.
+Use 3 ms as attack and 300ms hold and 50ms as release. You can play with hodl value if you hear that your voice is chopped.
+
+![image](https://user-images.githubusercontent.com/5956557/205490368-68bfceaa-635f-4dba-91b5-e0c7eaefb6e3.png)
 
 ## Windows
