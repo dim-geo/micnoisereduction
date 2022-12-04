@@ -115,7 +115,7 @@ If the mic is peaking reduce the sensitivity/capture volume of it through Alsa o
 Use masterme graph to adjust the gate and check how load your voice is made.
 ![image](https://user-images.githubusercontent.com/5956557/205509911-887b5e1d-a513-4a67-accd-15c5597ea1fe.png)
 
-After you are happy with the settings of all plugins store the carla plugin chain in a Carla project file. (For example voice.carxp)
+After you are happy with the settings of all plugins, store the carla plugin chain in a Carla project file. (For example voice.carxp)
 
 #### Startup
 
