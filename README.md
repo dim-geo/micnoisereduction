@@ -73,7 +73,7 @@ pw-jack -p 1440 carla
 If Carla's buffer size is not 1440, restart  carla until it is.
 
 #### Engine settings
-Make engine settings as below
+Make engine settings as below and restart Carla
 
 ![image](https://user-images.githubusercontent.com/5956557/205489823-04f3e911-c174-4560-9eb7-bb8b52536c48.png)
 
@@ -86,7 +86,7 @@ Make sure that the mic is not peaking. All plugins in Carla must not touch the r
 If the mic is peaking reduce the sensitivity/capture volume of it, through Alsa or Pulseaudio mixer.
 
 ![image](https://user-images.githubusercontent.com/5956557/205509754-3fbf085e-e321-4030-9095-3c6ed784309a.png)
-Use masterme graph to adjust the gate and check how load your voice is made.
+Use masterme graph to adjust the gate and check how loud your voice is made.
 ![image](https://user-images.githubusercontent.com/5956557/205509911-887b5e1d-a513-4a67-accd-15c5597ea1fe.png)
 
 After you are happy with the settings of all plugins, store the carla plugin chain in a Carla project file. (For example voice.carxp)
@@ -132,4 +132,25 @@ Use the below settings.
 #### Autromated Startup
 After saving the project, you can automate startup like this:
 
+```
+#!/bin/bash
+
+pw-jack -p 1440 carla ~/voice.carxp &
+sleep 5
+pw-link -d alsa_input.pci-0000_00_1b.0.analog-stereo:capture_FL Carla:audio-in1
+pw-link -d alsa_input.pci-0000_00_1b.0.analog-stereo:capture_FR Carla:audio-in2
+pw-link -d Carla:audio-out2 alsa_output.pci-0000_00_1b.0.analog-surround-51:playback_FR
+pw-link -d Carla:audio-out1 alsa_output.pci-0000_00_1b.0.analog-surround-51:playback_FL
+pw-link Carla:audio-out2 "my_sink:playback_FR"
+pw-link Carla:audio-out1 "my_sink:playback_FL"
+pw-link "Echo Cancellation Source:capture_FL" Carla:audio-in1
+pw-link "Echo Cancellation Source:capture_FR" Carla:audio-in2
+
+```
+
 ## Windows
+
+Follow this guide to use equalizer APO:
+https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e
+Master Me plugin is also available from Windows.
+Any suggestion for free eq plugin and desser?
