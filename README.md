@@ -1,12 +1,22 @@
 # Mic noise reduction
 
 A webpage to help document a good mic noise reduction setup.
+It needs to be adapted to your voice.
+We want to filter noise as much as possible, while maintaining a clear, loud and pleasant voice for our listeners.
 
+**Regardless of the OS that you use, test your results and disable all processing of voice from the application that you use. For example, disable automatic volume adjustments and disable noise reduction from application settings**
+
+We want our plugins to do noise and volume processing, because they do it better and with our personalized settings!
+
+Inspired from [https://gist.github.com/MateusRodCosta/a10225eb132cdcb97d7c458526f93085](https://gist.github.com/MateusRodCosta/a10225eb132cdcb97d7c458526f93085)
+ and [https://fedoramagazine.org/tune-up-your-sound-with-pulseeffects-microphones/](https://fedoramagazine.org/tune-up-your-sound-with-pulseeffects-microphones/)
+ 
 ## Linux
 
 ### Pipewire setup
 
 Pipewire + [Carla](https://kx.studio/Applications:Carla) will be used.
+Configure pipewire for your distro, test it. Follow distro documentation.
 
 Echo cancellation to prevent echo when using speakers and mic
 Latency must be a multiple of 480. Increasing latency will prevent Xruns in Carla.
@@ -109,7 +119,7 @@ You can use FFT analysis to see how your voice is heard. Remove very low frequen
 
 From easy view select 'speech general' preset. Then switch to expert and activate gate.
 You need to select the threshold of the gate based on what is heard when no or low sound is made.
-Use 3 ms as attack and 300ms hold and 50ms as release. You can play with hodl value if you hear that your voice is chopped.
+Use 3 ms as attack and 300ms hold and 50ms as release. You can play with hold value if you hear that your voice is chopped.
 This plugin will insure that your voice is heard loud and clear.
 
 ![image](https://user-images.githubusercontent.com/5956557/205490368-68bfceaa-635f-4dba-91b5-e0c7eaefb6e3.png)
@@ -152,7 +162,7 @@ pw-link "Echo Cancellation Source:capture_FR" Carla:audio-in2
 
 Follow this guide to use equalizer APO:
 
-(https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e)[https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e]
+[https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e](https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e)
 
-Master Me plugin is also available from Windows.
-Any suggestion for free eq plugin and desser?
+Master Me plugin is also available for Windows.
+Any suggestion for free VST eq plugin and deesser?
