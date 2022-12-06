@@ -6,7 +6,7 @@ A webpage to help document a good mic noise reduction setup.
 
 ### Pipewire setup
 
-Pipewire + carla (https://kx.studio/Applications:Carla) will be used.
+Pipewire + [Carla](https://kx.studio/Applications:Carla) will be used.
 
 Echo cancellation to prevent echo when using speakers and mic
 Latency must be a multiple of 480. Increasing latency will prevent Xruns in Carla.
@@ -93,10 +93,10 @@ After you are happy with the settings of all plugins, store the carla plugin cha
 
 ### Plugins
 
-1. Equalizer (lv2 plugin) https://lsp-plug.in/?page=manuals&section=graph_equalizer_x16_stereo 
-2. Master me (lv2 plugin) https://github.com/trummerschlunk/master_me It acts like gate + compressor + limiter
-3. Calf Desser (lv2 plugin) https://calf-studio-gear.org/doc/Deesser.html
-4. Noise reduction plugin (vst2 plugin) https://github.com/werman/noise-suppression-for-voice
+1. Equalizer (lv2 plugin) [https://lsp-plug.in/?page=manuals&section=graph_equalizer_x16_stereo](https://lsp-plug.in/?page=manuals&section=graph_equalizer_x16_stereo)
+2. Master me (lv2 plugin) [https://github.com/trummerschlunk/master_me](https://github.com/trummerschlunk/master_me) It acts like gate + compressor + limiter
+3. Calf Desser (lv2 plugin) [https://calf-studio-gear.org/doc/Deesser.html](https://calf-studio-gear.org/doc/Deesser.html)
+4. Noise reduction plugin (vst2 plugin) [https://github.com/werman/noise-suppression-for-voice](https://github.com/werman/noise-suppression-for-voice)
 
 
 #### Equalizer
@@ -151,6 +151,8 @@ pw-link "Echo Cancellation Source:capture_FR" Carla:audio-in2
 ## Windows
 
 Follow this guide to use equalizer APO:
-https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e
+
+(https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e)[https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e]
+
 Master Me plugin is also available from Windows.
 Any suggestion for free eq plugin and desser?
