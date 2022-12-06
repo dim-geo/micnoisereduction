@@ -87,6 +87,8 @@ Make engine settings as below and restart Carla
 
 ![image](https://user-images.githubusercontent.com/5956557/205489823-04f3e911-c174-4560-9eb7-bb8b52536c48.png)
 
+![image](https://user-images.githubusercontent.com/5956557/205895544-5acc466e-beea-422c-8bee-07ac01ad2684.png)
+
 
 #### Testing
 
@@ -139,7 +141,7 @@ Use the below settings.
 
 ![image](https://user-images.githubusercontent.com/5956557/205510222-74e684c9-1271-449c-a385-ffd9665847ce.png)
 
-#### Autromated Startup
+#### Automated Startup
 After saving the project, you can automate startup like this:
 
 ```
@@ -155,8 +157,11 @@ pw-link Carla:audio-out2 "my_sink:playback_FR"
 pw-link Carla:audio-out1 "my_sink:playback_FL"
 pw-link "Echo Cancellation Source:capture_FL" Carla:audio-in1
 pw-link "Echo Cancellation Source:capture_FR" Carla:audio-in2
-
 ```
+This is how carla and applications look connected
+
+![image](https://user-images.githubusercontent.com/5956557/205894979-515ea2a5-6266-400c-99b3-4f2f45d960ff.png)
+
 
 ## Windows
 
@@ -164,5 +169,5 @@ Follow this guide to use equalizer APO:
 
 [https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e](https://medium.com/@bssankaran/free-and-open-source-software-noise-cancelling-for-working-from-home-edb1b4e9764e)
 
-Master Me plugin is also available for Windows.
+Master Me plugin is also available for Windows. So you can use it before noise reduction.
 Any suggestion for free VST eq plugin and deesser?
