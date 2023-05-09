@@ -23,20 +23,30 @@ Latency must be a multiple of 480. Increasing latency will prevent Xruns in Carl
 Autoconnect to your mic. (Use target.object)
 
 ```
-~/.config/pipewire/pipewire.conf.d $ cat 20-echo-cancel.conf 
+~/.config/pipewire/pipewire.conf.d $ cat 20-echo-cancel.conf
+
  context.modules = [
   {   name = libpipewire-module-echo-cancel
       args = {
-          # library.name  = aec/libspa-aec-webrtc
-          node.latency = 1440/48000
+          library.name  = aec/libspa-aec-webrtc
+          node.latency = 960/48000
+          aec.args = {
+            webrtc.noise_suppression = false
+            webrtc.high_pass_filter = false
+            webrtc.gain_control = false
+            webrtc.voice_detection = false
+          }
           source.props = {
              node.exclusive = true
              node.name = "Echo Cancellation Source"
              target.object = "alsa_input.pci-0000_00_1b.0.analog-stereo"
+             #node.latency = 512/48000
           }
           sink.props = {
              node.name = "Echo Cancellation Sink"
-
+             #node.latency = 512/48000
+             # node.autoconnect = false
+             # target.object = "upmix51capture"
           }
       }
   }
@@ -45,7 +55,7 @@ Autoconnect to your mic. (Use target.object)
 ```
 Some conferencing applications do not support jack input, thus we need a dummy duplex device to connect carla and those applications
 ```
-~/.config/pipewire/pipewire.conf.d $ cat 30-virtualmic.conf 
+~/.config/pipewire/pipewire.conf.d $ cat 30-virtualmic.conf
 context.modules = [
     {   name = libpipewire-module-loopback
         args = {
@@ -54,17 +64,23 @@ context.modules = [
                 media.class = Audio/Sink
                 node.name = my_sink
                 node.description = "my-sink"
+                #node.latency = 1024/48000
+                audio.rate = 48000
                 audio.channels = 2
                 audio.position = [ FL FR ]
                 node.autoconnect = false
+                #target.object = "my-default-sink"
             }
             playback.props = {
                 media.class = Audio/Source
                 node.name = my_source
                 node.description = "my-source"
+                #node.latency = 1024/48000
+                audio.rate = 48000
                 audio.channels = 2
                 audio.position = [ FL FR ]
                 node.autoconnect = false
+                #target.object = "my-default-source"
             }
         }
     }
@@ -78,9 +94,9 @@ Restart pipewire.
 Start carla like this:
 
 ```
-pw-jack -p 1440 carla
+pw-jack -p 960 carla
 ```
-If Carla's buffer size is not 1440, restart  carla until it is.
+If Carla's buffer size is not 960, restart  carla until it is.
 
 #### Engine settings
 Make engine settings as below and restart Carla
@@ -121,7 +137,7 @@ You can use FFT analysis to see how your voice is heard. Remove very low frequen
 
 From easy view select 'speech general' preset. Then switch to expert and activate gate.
 You need to select the threshold of the gate based on what is heard when no or low sound is made.
-Use 3 ms as attack and 300ms hold and 50ms as release. You can play with hold value if you hear that your voice is chopped.
+Use 3 ms as attack and 500ms hold and 50ms as release. You can play with hold value if you hear that your voice is chopped.
 This plugin will insure that your voice is heard loud and clear.
 
 ![image](https://user-images.githubusercontent.com/5956557/205490368-68bfceaa-635f-4dba-91b5-e0c7eaefb6e3.png)
@@ -147,7 +163,7 @@ After saving the project, you can automate startup like this:
 ```
 #!/bin/bash
 
-pw-jack -p 1440 carla ~/voice.carxp &
+pw-jack -p 960 carla ~/voice.carxp &
 sleep 5
 pw-link -d alsa_input.pci-0000_00_1b.0.analog-stereo:capture_FL Carla:audio-in1
 pw-link -d alsa_input.pci-0000_00_1b.0.analog-stereo:capture_FR Carla:audio-in2
